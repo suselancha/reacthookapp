@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AppRoutes } from './AppRoutes'
+import { UserContext } from './UserContex'
 
 export const MainApp = () => {
+
+    const [user, setUser] = useState({});
+
     return (
-        <AppRoutes />
+        <UserContext.Provider value={{
+            user,
+            setUser
+         }}>
+
+            <AppRoutes />
+
+        </UserContext.Provider>
     )
 }
